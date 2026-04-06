@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant Usuario
+    participant Navegador
+    participant Servidor
+
+    Usuario->>Navegador: Escribe nota y hace click en "Guardar"
+
+    Navegador-->>Navegador: Añade la nota al DOM (sin recarga)
+
+    Navegador->>Servidor: POST /new_note_spa (JSON)
+    Servidor-->>Navegador: HTTP 201 Created
+
+    Navegador-->>Usuario: Nota visible inmediatamente
