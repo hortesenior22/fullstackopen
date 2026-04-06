@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant Usuario
+    participant Navegador
+    participant Servidor
+
+    Usuario->>Navegador: Escribe nota y hace click en "Guardar"
+    Navegador->>Servidor: POST /new_note (datos del formulario)
+    Servidor-->>Navegador: HTTP 302 Redirect a /notes
+    Navegador->>Servidor: GET /notes
+    Servidor-->>Navegador: HTML actualizado con la nueva nota
+    Navegador-->>Usuario: Muestra la página con la nota añadida
