@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant Usuario
+    participant Navegador
+    participant Servidor
+
+    Usuario->>Navegador: Abre /notes
+    Navegador->>Servidor: GET /notes
+    Servidor-->>Navegador: HTML base
+
+    Navegador->>Servidor: GET /main.css
+    Servidor-->>Navegador: CSS
+
+    Navegador->>Servidor: GET /main.js
+    Servidor-->>Navegador: JavaScript
+
+    Navegador->>Servidor: GET /data.json
+    Servidor-->>Navegador: JSON con notas
+
+    Navegador-->>Usuario: Renderiza notas usando JS (sin recarga)
